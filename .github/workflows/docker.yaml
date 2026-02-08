@@ -12,6 +12,11 @@ jobs:
   frontend:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      attestations: write
+      id-token: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
