@@ -1,4 +1,5 @@
-FROM python:3.14-slim
+ARG BASE_IMAGE=python:3.14
+FROM ${BASE_IMAGE}
 ENV GUNICORN_WORKERS=1
 RUN pip install poetry
 WORKDIR /app
