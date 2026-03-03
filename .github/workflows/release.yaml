@@ -63,8 +63,11 @@ jobs:
         with:
           python-version: 3.14
       
-      - name: Install Python dependencies
-        run: python -m pip install --upgrade pip poetry
+      - name: Update pip
+        run: python -m pip install --upgrade pip
+      
+      - name: Install poetry
+        run: python -m pip install --upgrade poetry
       
       - name: Install project dependencies
         run: poetry install
@@ -77,7 +80,8 @@ jobs:
           mkdir dist
           cp app.py dist/
           cp requirements.txt dist/
-          cp -a frontend/dist dist/frontend/
+          mkdir dist/frontend
+          cp -a frontend/dist/ dist/frontend/
       
       - name: Create dist zip
         run: |
